@@ -46,7 +46,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: ./
+      - uses: choose-hy/aireleasekit@v0.1.0
         with:
           config: airelease.yaml
 `;

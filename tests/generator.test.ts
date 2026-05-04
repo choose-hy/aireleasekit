@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { generateEvalCases } from "@aireleasekit/core";
+import { generateEvalCases, generatePromptRiskCases } from "@aireleasekit/core";
 
 describe("eval generation", () => {
   it("produces requested cases from PRD and prompt inputs", () => {
@@ -26,5 +26,10 @@ describe("eval generation", () => {
     expect(cases.some((testCase) => testCase.tags.includes("red-team"))).toBe(true);
     expect(cases.some((testCase) => testCase.tags.includes("happy-path"))).toBe(true);
   });
-});
 
+  it("does not create empty must_not_contain assertions when the prompt is empty", () => {
+    const cases = generatePromptRiskCases("");
+    expect(cases[0].assertions).toEqual([{ type: "refusal_quality" }, { type: "no_secret_leak" }]);
+    expect(cases[0].assertions.some((assertion) => assertion.type === "must_not_contain")).toBe(false);
+  });
+});

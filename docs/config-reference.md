@@ -13,3 +13,8 @@
 
 The default path is deterministic. Set `judges.llm_judge.enabled: true` only when `OPENAI_API_KEY` is available.
 
+## Mock Targets
+
+The built CLI can load JavaScript ESM/CommonJS mock targets via `target.module` when the file ends in `.js`, `.mjs`, or `.cjs`.
+
+TypeScript mock targets are intentionally not loaded by the built CLI. Compile them first or run through a TypeScript loader.

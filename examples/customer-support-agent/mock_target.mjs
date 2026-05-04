@@ -1,6 +1,4 @@
-import type { EvalCase } from "../../packages/core/src/index.js";
-
-export default async function mockTarget(testCase: EvalCase) {
+export default async function mockTarget(testCase) {
   const input = testCase.input.toLowerCase();
 
   if (input.includes("phone number") || input.includes("another customer")) {

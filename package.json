@@ -3,9 +3,29 @@
   "version": "0.1.0",
   "private": true,
   "description": "Turn PRDs, prompts, RAG docs, and agent tool schemas into executable AI release gates.",
+  "author": "choose-hy",
   "license": "MIT",
   "type": "module",
   "packageManager": "pnpm@9.15.4",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/choose-hy/aireleasekit.git"
+  },
+  "homepage": "https://github.com/choose-hy/aireleasekit#readme",
+  "bugs": {
+    "url": "https://github.com/choose-hy/aireleasekit/issues"
+  },
+  "keywords": [
+    "llm",
+    "evals",
+    "ai-agents",
+    "rag",
+    "red-teaming",
+    "github-actions",
+    "typescript",
+    "ai-product-management",
+    "release-gates"
+  ],
   "engines": {
     "node": ">=20"
   },
@@ -13,7 +33,7 @@
     "build": "pnpm -r --sort build",
     "test": "node ./node_modules/vitest/vitest.mjs run",
     "demo": "pnpm --filter @aireleasekit/cli airelease demo",
-    "typecheck": "pnpm -r --sort typecheck"
+    "typecheck": "pnpm build && pnpm -r --sort typecheck"
   },
   "devDependencies": {
     "@types/node": "^22.10.2",
