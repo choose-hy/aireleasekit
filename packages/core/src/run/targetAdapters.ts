@@ -58,7 +58,16 @@ async function callRestTarget(target: TargetConfig, testCase: EvalCase): Promise
 }
 
 async function callMockTarget(target: TargetConfig, testCase: EvalCase): Promise<NormalizedTargetResponse> {
-  if (target.module && !target.module.endsWith(".ts")) {
+  if (target.module) {
+    const extension = path.extname(target.module).toLowerCase();
+    if (extension === ".ts") {
+      throw new Error(
+        "TypeScript mock modules are not loaded by the built CLI. Use a compiled .js/.mjs mock target or run through a TypeScript loader."
+      );
+    }
+    if (![".js", ".mjs", ".cjs"].includes(extension)) {
+      throw new Error(`Mock target module ${target.module} must be a JavaScript module: .js, .mjs, or .cjs.`);
+    }
     const resolved = path.isAbsolute(target.module) ? target.module : path.resolve(process.cwd(), target.module);
     const imported = await import(pathToFileURL(resolved).href);
     const handler = imported.default ?? imported.handle ?? imported.mockTarget;

@@ -2,6 +2,7 @@
   "name": "@aireleasekit/cli",
   "version": "0.1.0",
   "description": "Command line interface for AIReleaseKit.",
+  "author": "choose-hy",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.js",
@@ -10,6 +11,27 @@
     "airelease": "dist/index.js"
   },
   "files": ["dist"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/choose-hy/aireleasekit.git",
+    "directory": "packages/cli"
+  },
+  "homepage": "https://github.com/choose-hy/aireleasekit#readme",
+  "bugs": {
+    "url": "https://github.com/choose-hy/aireleasekit/issues"
+  },
+  "keywords": [
+    "llm",
+    "evals",
+    "ai-release-gates",
+    "rag",
+    "agent-safety",
+    "github-actions",
+    "typescript"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "node ../../node_modules/typescript/bin/tsc -p tsconfig.json",
     "typecheck": "node ../../node_modules/typescript/bin/tsc -p tsconfig.json --noEmit",

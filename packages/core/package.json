@@ -2,6 +2,7 @@
   "name": "@aireleasekit/core",
   "version": "0.1.0",
   "description": "Core generation, scoring, running, scanning, and reporting engine for AIReleaseKit.",
+  "author": "choose-hy",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.js",
@@ -13,6 +14,27 @@
     }
   },
   "files": ["dist"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/choose-hy/aireleasekit.git",
+    "directory": "packages/core"
+  },
+  "homepage": "https://github.com/choose-hy/aireleasekit#readme",
+  "bugs": {
+    "url": "https://github.com/choose-hy/aireleasekit/issues"
+  },
+  "keywords": [
+    "llm",
+    "evals",
+    "ai-release-gates",
+    "rag",
+    "agent-safety",
+    "red-teaming",
+    "typescript"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "node ../../node_modules/typescript/bin/tsc -p tsconfig.json",
     "typecheck": "node ../../node_modules/typescript/bin/tsc -p tsconfig.json --noEmit"

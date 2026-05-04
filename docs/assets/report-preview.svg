@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="560" viewBox="0 0 1100 560" role="img" aria-labelledby="title desc">
+  <title id="title">AIReleaseKit report preview</title>
+  <desc id="desc">Flow from PRD, prompt, RAG docs, and tool schema into synthetic evals, app run, and SHIP WARN BLOCK report.</desc>
+  <rect width="1100" height="560" rx="18" fill="#f6f8fb"/>
+  <rect x="36" y="36" width="1028" height="488" rx="16" fill="#ffffff" stroke="#d6dde8"/>
+  <text x="70" y="82" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#102a43">AIReleaseKit</text>
+  <text x="70" y="112" font-family="Arial, sans-serif" font-size="16" fill="#536579">Turn product requirements into executable AI release gates</text>
+
+  <g font-family="Arial, sans-serif">
+    <rect x="70" y="158" width="210" height="74" rx="10" fill="#e7f0ff" stroke="#9dbff9"/>
+    <text x="92" y="188" font-size="16" font-weight="700" fill="#173a6a">Inputs</text>
+    <text x="92" y="214" font-size="14" fill="#24435f">PRD + Prompt + RAG Docs</text>
+    <text x="92" y="234" font-size="14" fill="#24435f">+ Tool Schema</text>
+
+    <path d="M294 195 H385" stroke="#8292a8" stroke-width="3" marker-end="url(#arrow)"/>
+
+    <rect x="400" y="158" width="220" height="74" rx="10" fill="#ecfdf3" stroke="#8bd7aa"/>
+    <text x="422" y="188" font-size="16" font-weight="700" fill="#126138">Synthetic Evals</text>
+    <text x="422" y="214" font-size="14" fill="#24435f">Happy paths + edge cases</text>
+    <text x="422" y="234" font-size="14" fill="#24435f">Privacy + red-team tests</text>
+
+    <path d="M636 195 H727" stroke="#8292a8" stroke-width="3" marker-end="url(#arrow)"/>
+
+    <rect x="742" y="158" width="222" height="74" rx="10" fill="#fff7e6" stroke="#f2c36b"/>
+    <text x="764" y="188" font-size="16" font-weight="700" fill="#7a4d00">Run Against AI App</text>
+    <text x="764" y="214" font-size="14" fill="#24435f">REST target or mock target</text>
+    <text x="764" y="234" font-size="14" fill="#24435f">Latency + cost tracking</text>
+
+    <rect x="70" y="286" width="430" height="178" rx="14" fill="#102a43"/>
+    <text x="100" y="326" font-size="18" font-weight="700" fill="#ffffff">Sample Release Report</text>
+    <rect x="100" y="348" width="116" height="38" rx="7" fill="#ffd9d7"/>
+    <text x="126" y="373" font-size="18" font-weight="700" fill="#9f1f18">BLOCK</text>
+    <text x="100" y="416" font-size="15" fill="#e9f1f8">Reasons</text>
+    <text x="124" y="442" font-size="14" fill="#ffffff">- Privacy gate failed</text>
+    <text x="124" y="466" font-size="14" fill="#ffffff">- issue_refund called without confirmation</text>
+    <text x="124" y="490" font-size="14" fill="#ffffff">- P95 latency exceeded budget</text>
+
+    <rect x="560" y="286" width="404" height="178" rx="14" fill="#ffffff" stroke="#d6dde8"/>
+    <text x="590" y="326" font-size="18" font-weight="700" fill="#102a43">Decision Model</text>
+    <text x="590" y="358" font-size="14" fill="#536579">Quality bars + budgets + release policy</text>
+    <rect x="590" y="388" width="88" height="34" rx="7" fill="#d7f5df"/>
+    <text x="612" y="410" font-size="14" font-weight="700" fill="#0f6b2f">SHIP</text>
+    <rect x="698" y="388" width="88" height="34" rx="7" fill="#fff1c2"/>
+    <text x="720" y="410" font-size="14" font-weight="700" fill="#7a4d00">WARN</text>
+    <rect x="806" y="388" width="88" height="34" rx="7" fill="#ffd9d7"/>
+    <text x="828" y="410" font-size="14" font-weight="700" fill="#9f1f18">BLOCK</text>
+    <text x="590" y="456" font-size="14" fill="#24435f">JSON + Markdown + Static HTML + GitHub Summary</text>
+  </g>
+
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#8292a8"/>
+    </marker>
+  </defs>
+</svg>
+
