@@ -33,7 +33,7 @@
     "build": "pnpm -r --sort build",
     "test": "node ./node_modules/vitest/vitest.mjs run",
     "demo": "pnpm --filter @aireleasekit/cli airelease demo",
-    "typecheck": "pnpm -r --sort typecheck"
+    "typecheck": "pnpm build && pnpm -r --sort typecheck"
   },
   "devDependencies": {
     "@types/node": "^22.10.2",
