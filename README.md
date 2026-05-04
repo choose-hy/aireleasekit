@@ -1,12 +1,10 @@
 # AIReleaseKit
 
-[![CI](https://github.com/choose-hy/aireleasekit/actions/workflows/ci.yml/badge.svg)](https://github.com/choose-hy/aireleasekit/actions/workflows/ci.yml)
-[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-![Node >=20](https://img.shields.io/badge/node-%3E%3D20-339933)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178c6)
-![No training data required](https://img.shields.io/badge/no_training_data-required-7c3aed)
-
-[中文说明](README.zh-CN.md)
+[![CI](https://github.com/choose-hy/aireleasekit/actions/workflows/ci.yml/badge.svg)](https://github.com/choose-hy/aireleasekit/actions)
+![Node](https://img.shields.io/badge/node-%3E%3D20-brightgreen)
+![TypeScript](https://img.shields.io/badge/TypeScript-ready-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Training Data](https://img.shields.io/badge/training_data-not_required-purple)
 
 **Turn PRDs into AI release gates.**  
 **把 PRD、Prompt、RAG 文档和 Agent 工具 schema 转成可执行的 AI 上线门禁。**
@@ -15,11 +13,20 @@ AIReleaseKit helps AI product teams answer one question before merging an AI fea
 
 > Is this safe, reliable, and good enough to ship?
 
-It converts product requirements, prompts, RAG docs, and tool schemas into synthetic eval cases, red-team tests, cost/latency budgets, tool-risk policies, and a final release decision:
+It converts product requirements, prompts, RAG docs, and tool schemas into:
+
+- synthetic eval cases
+- red-team tests
+- tool-safety checks
+- cost and latency budgets
+- PM-readable launch reports
+- GitHub Action release gates
+
+Final decision:
 
 `SHIP` / `WARN` / `BLOCK`
 
-中文：AIReleaseKit 是一个面向 AI 产品经理和 AI 工程团队的开源上线评测工具。它不需要训练数据，也不需要微调模型，可以把 PRD、系统提示词、RAG 文档和 Agent 工具 schema 转成可执行的评测集和上线门禁。
+[中文说明](README.zh-CN.md)
 
 ![AIReleaseKit report preview](docs/assets/report-preview.svg)
 
@@ -316,4 +323,3 @@ AIReleaseKit does not require telemetry, training data, fine-tuning, or committe
 ## License
 
 MIT
-
