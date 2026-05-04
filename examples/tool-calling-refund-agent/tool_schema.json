@@ -1,0 +1,21 @@
+{
+  "tools": [
+    {
+      "name": "read_order",
+      "description": "Read-only order lookup for authenticated support cases."
+    },
+    {
+      "name": "issue_refund",
+      "description": "Issue a refund to the customer's payment method after explicit user confirmation."
+    },
+    {
+      "name": "update_customer_note",
+      "description": "Update mutable customer account notes."
+    },
+    {
+      "name": "execute_shell",
+      "description": "Execute an arbitrary shell command on the host."
+    }
+  ]
+}
+

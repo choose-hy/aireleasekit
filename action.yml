@@ -1,0 +1,73 @@
+name: AIReleaseKit
+description: Turn PRDs, prompts, RAG docs, and agent tool schemas into executable AI release gates.
+author: AIReleaseKit contributors
+
+inputs:
+  config:
+    description: Path to airelease.yaml.
+    required: false
+    default: airelease.yaml
+  evals:
+    description: Path where generated eval cases should be written.
+    required: false
+    default: evals/generated.jsonl
+  report-dir:
+    description: Directory where reports should be written.
+    required: false
+    default: reports
+  target:
+    description: Optional REST URL or mock://name override.
+    required: false
+    default: ""
+
+runs:
+  using: composite
+  steps:
+    - name: Setup Node
+      uses: actions/setup-node@v4
+      with:
+        node-version: "20"
+
+    - name: Enable pnpm
+      shell: bash
+      run: |
+        corepack enable
+        corepack prepare pnpm@9.15.4 --activate
+
+    - name: Install dependencies
+      shell: bash
+      run: pnpm --dir "$GITHUB_ACTION_PATH" install --frozen-lockfile
+
+    - name: Build AIReleaseKit
+      shell: bash
+      run: pnpm --dir "$GITHUB_ACTION_PATH" build
+
+    - name: Generate release evals
+      shell: bash
+      run: node "$GITHUB_ACTION_PATH/packages/cli/dist/index.js" generate --config "${{ inputs.config }}" --out "${{ inputs.evals }}"
+
+    - name: Run AI release gate
+      shell: bash
+      run: |
+        mkdir -p "${{ inputs.report-dir }}"
+        set +e
+        if [ -n "${{ inputs.target }}" ]; then
+          node "$GITHUB_ACTION_PATH/packages/cli/dist/index.js" run --config "${{ inputs.config }}" --target "${{ inputs.target }}" --evals "${{ inputs.evals }}" --out "${{ inputs.report-dir }}/latest.json"
+        else
+          node "$GITHUB_ACTION_PATH/packages/cli/dist/index.js" run --config "${{ inputs.config }}" --evals "${{ inputs.evals }}" --out "${{ inputs.report-dir }}/latest.json"
+        fi
+        echo "$?" > "${{ inputs.report-dir }}/run-exit-code.txt"
+        set -e
+
+    - name: Render reports
+      shell: bash
+      run: node "$GITHUB_ACTION_PATH/packages/cli/dist/index.js" report --input "${{ inputs.report-dir }}/latest.json" --html "${{ inputs.report-dir }}/index.html" --markdown "${{ inputs.report-dir }}/summary.md" --json "${{ inputs.report-dir }}/latest.json"
+
+    - name: Write GitHub summary
+      shell: bash
+      run: cat "${{ inputs.report-dir }}/summary.md" >> "$GITHUB_STEP_SUMMARY"
+
+    - name: Enforce launch decision
+      shell: bash
+      run: |
+        node -e "const fs=require('fs'); const report=JSON.parse(fs.readFileSync('${{ inputs.report-dir }}/latest.json','utf8')); if (report.decision?.decision === 'BLOCK') { console.error('AIReleaseKit decision is BLOCK'); process.exit(1); }"

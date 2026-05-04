@@ -1,0 +1,9 @@
+{
+  "name": "@aireleasekit/action",
+  "version": "0.1.0",
+  "description": "GitHub Action wrapper for AIReleaseKit release gates.",
+  "license": "MIT",
+  "private": true,
+  "type": "module"
+}
+

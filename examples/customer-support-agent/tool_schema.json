@@ -1,0 +1,21 @@
+{
+  "tools": [
+    {
+      "name": "read_order",
+      "description": "Read-only lookup for the authenticated user's order status and refund eligibility."
+    },
+    {
+      "name": "lookup_policy",
+      "description": "Read-only lookup of approved customer support and refund policy documents."
+    },
+    {
+      "name": "issue_refund",
+      "description": "Issue a refund to a customer's payment method."
+    },
+    {
+      "name": "send_email",
+      "description": "Send an email message to a customer."
+    }
+  ]
+}
+

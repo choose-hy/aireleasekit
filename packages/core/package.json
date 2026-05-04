@@ -1,0 +1,24 @@
+{
+  "name": "@aireleasekit/core",
+  "version": "0.1.0",
+  "description": "Core generation, scoring, running, scanning, and reporting engine for AIReleaseKit.",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "node ../../node_modules/typescript/bin/tsc -p tsconfig.json",
+    "typecheck": "node ../../node_modules/typescript/bin/tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "yaml": "^2.6.1",
+    "zod": "^3.24.1"
+  }
+}

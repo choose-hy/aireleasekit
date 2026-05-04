@@ -1,0 +1,23 @@
+{
+  "name": "@aireleasekit/cli",
+  "version": "0.1.0",
+  "description": "Command line interface for AIReleaseKit.",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "airelease": "dist/index.js"
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "node ../../node_modules/typescript/bin/tsc -p tsconfig.json",
+    "typecheck": "node ../../node_modules/typescript/bin/tsc -p tsconfig.json --noEmit",
+    "airelease": "node dist/index.js",
+    "dev": "tsx src/index.ts"
+  },
+  "dependencies": {
+    "@aireleasekit/core": "workspace:*",
+    "commander": "^12.1.0"
+  }
+}
